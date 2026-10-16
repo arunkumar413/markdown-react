@@ -12,7 +12,14 @@ A simple markdown editor and previewer based on react and markdown
 4) [Links](http://google.com)
 5) **Bold** text
 6) *Italics* text
-7) code blocks using shiki
+7) Code blocks using shiki
+
+## Code block
+\`\`\`js
+function Test() {
+  console.log("Hello, world");
+}
+\`\`\`
 `;
 
 const HEADING_CLASSES = ["md-h1", "md-h2", "md-h3", "md-h4", "md-h5", "md-h6"];

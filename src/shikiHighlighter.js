@@ -1,6 +1,6 @@
 import { createHighlighter } from "shiki";
 
-export const SHIKI_THEME = "github-dark";
+export const SHIKI_THEME = "min-light";
 
 const INITIAL_LANGS = [
   "javascript",
