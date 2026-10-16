@@ -21,7 +21,7 @@ npm install
 npm run dev
 ```
 
-Then open the local URL Vite prints (usually `http://localhost:5173`).
+Then open the local URL Vite prints (usually `http://localhost:5173/markdown-react/`).
 
 | Script | Description |
 | --- | --- |
@@ -29,6 +29,20 @@ Then open the local URL Vite prints (usually `http://localhost:5173`).
 | `npm run build` | Production build |
 | `npm run preview` | Preview the production build |
 | `npm run lint` | Lint with Oxlint |
+
+## GitHub Pages
+
+This project is configured to deploy from `main` with GitHub Actions.
+
+1. In the GitHub repo, open **Settings → Pages**.
+2. Under **Build and deployment**, set **Source** to **GitHub Actions**.
+3. Push to `main` (or run the **Deploy to GitHub Pages** workflow manually).
+
+The live app will be at:
+
+https://arunkumar413.github.io/markdown-react/
+
+Vite `base` is set to `/markdown-react/` so assets resolve under that path.
 
 ## Stack
 
