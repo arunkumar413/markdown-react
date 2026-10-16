@@ -32,17 +32,18 @@ Then open the local URL Vite prints (usually `http://localhost:5173/markdown-rea
 
 ## GitHub Pages
 
-This project is configured to deploy from `main` with GitHub Actions.
+Pushes to `main` build the Vite app and publish `dist` to the `gh-pages` branch.
 
-1. In the GitHub repo, open **Settings → Pages**.
-2. Under **Build and deployment**, set **Source** to **GitHub Actions**.
-3. Push to `main` (or run the **Deploy to GitHub Pages** workflow manually).
+1. Push to `main` (or run the **Deploy to GitHub Pages** workflow manually).
+2. In the GitHub repo, open **Settings → Pages**.
+3. Set **Source** to **Deploy from a branch**.
+4. Set **Branch** to `gh-pages` / `/ (root)`, then save.
 
-The live app will be at:
+Do not point Pages at `main`. That serves the Vite source `index.html`, which requests `/src/main.jsx` and 404s.
+
+The live app is:
 
 https://arunkumar413.github.io/markdown-react/
-
-Vite `base` is set to `/markdown-react/` so assets resolve under that path.
 
 ## Stack
 
