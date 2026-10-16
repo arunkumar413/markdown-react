@@ -1,0 +1,136 @@
+.App {
+  font-family: Inter, system-ui, sans-serif;
+  text-align: left;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-content: center;
+  align-items: stretch;
+  height: 100vh;
+}
+
+.markdown-editor,
+.markdown-preview {
+  font-family: Inter, system-ui, sans-serif;
+  padding: 1rem;
+  overflow: auto;
+  background: #fff;
+  color: #111;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+.markdown-editor {
+  border-right: solid 1px gray;
+  outline: none;
+  white-space: pre-wrap;
+}
+
+.markdown-preview p {
+  margin: 0.6em 0;
+}
+
+.markdown-editor .md-bold,
+.markdown-preview strong,
+.markdown-preview b {
+  font-weight: 700;
+}
+
+.markdown-editor .md-italic,
+.markdown-preview em,
+.markdown-preview i {
+  font-style: italic;
+}
+
+.markdown-editor .md-h1,
+.markdown-preview h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0.67em 0;
+  line-height: 1.2;
+}
+
+.markdown-editor .md-h2,
+.markdown-preview h2 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin: 0.75em 0;
+  line-height: 1.25;
+}
+
+.markdown-editor .md-h3,
+.markdown-preview h3 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin: 0.8em 0;
+  line-height: 1.3;
+}
+
+.markdown-editor .md-h4,
+.markdown-preview h4 {
+  font-size: 1.15rem;
+  font-weight: 600;
+  margin: 0.9em 0;
+  line-height: 1.35;
+}
+
+.markdown-editor .md-h5,
+.markdown-preview h5 {
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin: 1em 0;
+  line-height: 1.4;
+}
+
+.markdown-editor .md-h6,
+.markdown-preview h6 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 1em 0;
+  line-height: 1.4;
+  color: #444;
+}
+
+.markdown-editor .md-code-fence,
+.markdown-editor .md-code-line,
+.markdown-preview .shiki {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.markdown-editor .md-code-fence,
+.markdown-editor .md-code-line {
+  margin: 0;
+  padding: 0 0.85rem;
+}
+
+.markdown-editor .md-code-open {
+  padding-top: 0.75rem;
+  border-radius: 8px 8px 0 0;
+  color: #8b949e;
+}
+
+.markdown-editor .md-code-close {
+  padding-bottom: 0.75rem;
+  border-radius: 0 0 8px 8px;
+  color: #8b949e;
+}
+
+.markdown-editor .md-code-open.md-code-close,
+.markdown-editor .md-code-open:only-child {
+  border-radius: 8px;
+  padding-bottom: 0.75rem;
+}
+
+.markdown-preview .shiki {
+  margin: 0.75em 0;
+  padding: 0.85rem 1rem;
+  border-radius: 8px;
+  overflow: auto;
+}
+
+.markdown-preview .shiki code {
+  font-family: inherit;
+  background: none;
+  padding: 0;
+}
