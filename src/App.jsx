@@ -13,6 +13,7 @@ A simple markdown editor and previewer based on react and markdown
 5) **Bold** text
 6) *Italics* text
 7) Code blocks using shiki
+8) Inline \`code\` using backticks
 
 ## Code block
 \`\`\`js
@@ -20,6 +21,17 @@ function Test() {
   console.log("Hello, world");
 }
 \`\`\`
+
+## Blockquote
+> This is a blockquote
+> This is a blockquote
+> This is a blockquote  
+
+## Images 
+
+![dummy image](https://dummyimage.com/300x300/ba23ba/bae332.png&text=Dummy+image)
+
+
 `;
 
 const HEADING_CLASSES = ["md-h1", "md-h2", "md-h3", "md-h4", "md-h5", "md-h6"];
@@ -200,8 +212,31 @@ function renderInlineHtml(text) {
     return true;
   };
 
+  const tryInlineCode = () => {
+    if (text[index] !== "`" || text.startsWith("```", index)) {
+      return false;
+    }
+
+    const innerStart = index + 1;
+    const end = text.indexOf("`", innerStart);
+    if (end === -1) {
+      return false;
+    }
+
+    const inner = text.slice(innerStart, end);
+    if (!inner) {
+      return false;
+    }
+
+    flushPlain();
+    html += `<span class="md-inline-code">${escapeHtml(text.slice(index, end + 1))}</span>`;
+    index = end + 1;
+    return true;
+  };
+
   while (index < text.length) {
     if (
+      tryInlineCode() ||
       tryDelim("***", "md-bold md-italic") ||
       tryDelim("___", "md-bold md-italic") ||
       tryDelim("**", "md-bold") ||
