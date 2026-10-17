@@ -32,6 +32,15 @@ function Test() {
 ![dummy image](https://dummyimage.com/300x300/ba23ba/bae332.png&text=Dummy+image)
 
 
+## Tables
+
+| Tables        | Are           | Cool  |
+| ------------- |:-------------:| -----:|
+| col 3 is      | right-aligned | $1600 |
+| col 2 is      | centered      |   $12 |
+| zebra stripes | are neat      |    $1 |
+
+
 `;
 
 const HEADING_CLASSES = ["md-h1", "md-h2", "md-h3", "md-h4", "md-h5", "md-h6"];
