@@ -148,11 +148,13 @@
   border-radius: 0;
 }
 
-.markdown-preview blockquote {
-  border-left: 2px solid #d1d5db;
+
+
+.markdown-editor .md-blockquote, .markdown-preview blockquote {
+  border-left: 2px solid #ccc;
   padding-left: 1em;
   margin: 1em 0;
-  color: #6b7280;
+  color: #555;
   font-style: italic;
 }
 

@@ -1,5 +1,6 @@
 # Markdown-react
 A simple markdown editor and previewer based on react and markdown
+
 ## Features:
 1) Supports headings (h1-h6)
 2) Paragraphs
@@ -9,6 +10,7 @@ A simple markdown editor and previewer based on react and markdown
 6) *Italics* text
 7) Code blocks using shiki
 8) Inline `code` using backticks
+
 ## Code block
 ```js
 function Test() {
@@ -17,9 +19,7 @@ function Test() {
 ```
 
 ## Blockquote
-> This is a blockquote
-> This is a blockquote
-> This is a blockquote  
+> I wish to speak a word for Nature, for absolute freedom and wildness, as contrasted with a freedom and culture merely civil, — to regard man as an inhabitant, or a part and parcel of Nature, rather than a member of society.  
 
 ## Images 
 

@@ -411,7 +411,9 @@ async function styleEditorBlocks(editor) {
     const fence = inFence.get(index);
     if (!fence) {
       clearCodeClasses(block);
-      applyHeadingClass(block, headingLevel(block.textContent ?? ""));
+      const text = block.textContent ?? "";
+      // applyHeadingClass(block, headingLevel(block.textContent ?? ""));
+      applyBlockClass(block, text);         
       styleBlock(block);
     }
   }
@@ -479,14 +481,85 @@ async function styleEditorBlocks(editor) {
   const selection = window.getSelection();
   const range = selection?.rangeCount ? selection.getRangeAt(0) : null;
   const caretBlock = range ? getCurrentBlock(editor, range.startContainer) : null;
+  
   if (caretBlock instanceof HTMLElement && caretBlock !== editor) {
     const fenceLine = [...blocks].findIndex((block) => block === caretBlock);
     if (fenceLine === -1 || !inFence.has(fenceLine)) {
-      applyHeadingClass(caretBlock, headingLevel(caretBlock.textContent ?? ""));
+      // applyHeadingClass(caretBlock, headingLevel(caretBlock.textContent ?? ""));
+      applyBlockClass(caretBlock, caretBlock.textContent ?? "");
     }
   }
 
   setCaretPosition(editor, caret);
+}
+
+
+function isUnorderedListItem(text) {
+  return /^(\s*)([-*+])\s+/.test(text);
+}
+
+function isOrderedListItem(text) {
+  return /^(\s*)\d+\.\s+/.test(text);
+}
+
+function isBlockquote(text) {
+  return /^\s*>\s?/.test(text);
+}
+
+function isHorizontalRule(text) {
+  return /^\s*(-{3,}|\*{3,}|_{3,})\s*$/.test(text);
+}
+
+// Optional: detect the indentation level of a list item
+function listIndent(text) {
+  const match = text.match(/^(\s*)/);
+  return match ? Math.floor(match[1].length / 2) : 0; // assuming 2-space indent
+}
+
+const BLOCK_CLASSES = [
+  "md-paragraph",
+  "md-heading",
+  ...HEADING_CLASSES,
+  "md-ul-item",
+  "md-ol-item",
+  "md-blockquote",
+  "md-hr",
+  ...CODE_CLASSES,
+];
+
+function applyBlockClass(block, text) {
+  // Clear previous block-type classes
+  block.classList.remove(...BLOCK_CLASSES);
+
+  const level = headingLevel(text);
+  if (level) {
+    block.classList.add("md-heading", `md-h${level}`);
+    return;
+  }
+
+  if (isUnorderedListItem(text)) {
+    block.classList.add("md-ul-item");
+    // optional: block.dataset.indent = listIndent(text);
+    return;
+  }
+
+  if (isOrderedListItem(text)) {
+    block.classList.add("md-ol-item");
+    return;
+  }
+
+  if (isBlockquote(text)) {
+    block.classList.add("md-blockquote");
+    return;
+  }
+
+  if (isHorizontalRule(text)) {
+    block.classList.add("md-hr");
+    return;
+  }
+
+  // Default
+  block.classList.add("md-paragraph");
 }
 
 const MarkdownEditor = memo(function MarkdownEditor({ initialContent, onInput }) {
