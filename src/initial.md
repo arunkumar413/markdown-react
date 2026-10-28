@@ -10,6 +10,9 @@ A simple markdown editor and previewer based on react and markdown
 6) *Italics* text
 7) Code blocks using shiki
 8) Inline `code` using backticks
+9) Mermaid diagrams
+10) Images
+11) Tables
 
 ## Code block
 ```js
