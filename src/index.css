@@ -154,6 +154,36 @@
   border-radius: 0;
 }
 
+.markdown-preview .mermaid-diagram {
+  margin: 1em 0;
+  overflow-x: auto;
+  padding: 0.75rem;
+  border: 1px solid rgb(229, 231, 235);
+  border-radius: 8px;
+  background: #fff;
+}
+
+.markdown-preview .mermaid-diagram svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 0 auto;
+}
+
+.markdown-preview .mermaid-error {
+  margin: 1em 0;
+  padding: 0.75rem 1rem;
+  border: 1px solid #fca5a5;
+  border-radius: 8px;
+  background: #fef2f2;
+  color: #991b1b;
+}
+
+.markdown-preview .mermaid-error pre {
+  margin: 0.5rem 0 0;
+  white-space: pre-wrap;
+}
+
 
 
 .markdown-editor .md-blockquote, .markdown-preview blockquote {

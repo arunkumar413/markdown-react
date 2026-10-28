@@ -32,3 +32,15 @@ function Test() {
 | col 3 is      | right-aligned | $1600 |
 | col 2 is      | centered      |   $12 |
 | zebra stripes | are neat      |    $1 |
+
+## Mermaid diagrams
+
+```mermaid
+flowchart TD
+  A[Mermaid text] --> B{Flowchart?}
+  B -- Yes --> C[Pele]
+  B -- No --> D[Mermaid]
+  C --> E([SVG])
+  D --> E
+
+```
